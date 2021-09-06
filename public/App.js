@@ -4,16 +4,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import AddTutorial from "./components/add-tutorial.component";
-import Tutorial from "./components/tutorial.component";
+import ModalWindow from "./components/tutorial.component";
 import TutorialsList from "./components/tutorials-list.component";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
+        <nav className="navbar navbar-expand navbar-dark bg-dark Chart">
           <Link to={"/tutorials"} className="navbar-brand">
-            bezKoder
+            bezKoder PieChart
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
