@@ -1,33 +1,39 @@
+import React, { useState } from 'react';
 
-import * as React from 'react';
-import PostIcon from '@material-ui/icons/Book';
-import UserIcon from '@material-ui/icons/Group';
-import { Admin, Resource, ListGuesser } from 'react-admin';
-import jsonServerProvider from 'ra-data-json-server';
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Toast from 'react-bootstrap/Toast';
+import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
  
-import { PostList, PostEdit, PostCreate, PostShow } from './posts';
-import { UserList } from './users';
-import Dashboard from './Dashboard';
-import authProvider from './authProvider';
+import './App.css';
+ 
+const ExampleToast = ({ children }) => {
+  const [show, toggleShow] = useState(true);
+ 
+  return (
+    <>
+      {!show && <Button onClick={() => toggleShow(true)}>Show Toast</Button>}
+      <Toast show={show} onClose={() => toggleShow(false)}>
+        <Toast.Header>
+          <strong className="mr-auto">React-Bootstrap Demo</strong>
+        </Toast.Header>
+        <Toast.Body>{children}</Toast.Body>
+      </Toast>
+    </>
+  );
+};
  
 const App = () => (
-    <Admin
-        dataProvider={jsonServerProvider(
-            'https://jsonplaceholder.typicode.com'
-        )}
-        authProvider={authProvider}
-        dashboard={Dashboard}
-    >
-        <Resource
-            name="posts"
-            icon={PostIcon}
-            list={PostList}
-            edit={PostEdit}
-            create={PostCreate}
-            show={PostShow}
-        />
-        <Resource name="users" icon={UserIcon} list={UserList} />
-        <Resource name="comments" list={ListGuesser} />
-    </Admin>
+  <Container className="p-3">
+    <Jumbotron>
+      <h1 className="header">Demonstration Of React Bootstrap</h1>
+      <ExampleToast>
+        Click Here!
+        
+      </ExampleToast>
+    </Jumbotron>
+  </Container>
 );
+ 
+export default App;
 export default App;
